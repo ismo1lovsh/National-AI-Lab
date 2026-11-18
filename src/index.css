@@ -1,0 +1,39 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0b1c38;
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color: #e8f0ff;
+}
+
+::selection {
+  background: rgba(0, 212, 255, 0.25);
+}
+
+/* Scrollbar hidden globally */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.2); border-radius: 2px; }
+
+/* Button base reset */
+button {
+  outline: none;
+  font-family: inherit;
+}
+button:focus-visible {
+  outline: 2px solid rgba(0,212,255,0.5);
+  outline-offset: 2px;
+}

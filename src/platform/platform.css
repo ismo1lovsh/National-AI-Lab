@@ -1,0 +1,96 @@
+/* National AI Lab — login va panellar */
+.pf { --bg:#0b1c38; --bg2:#0f2547; --card:#11294f; --line:#1f3d6b; --ink:#e8f0ff; --mut:#8ea8cc; --acc:#00d4ff; --acc2:#3b82f6; --ok:#22c55e; --warn:#f59e0b; --bad:#ef4444;
+  position:fixed; inset:0; overflow:auto; background:var(--bg); color:var(--ink); font-family:'Space Grotesk',system-ui,sans-serif; }
+.pf ::-webkit-scrollbar { width:8px } .pf ::-webkit-scrollbar-thumb { background:#24456f; border-radius:4px }
+.pf button { font:inherit; cursor:pointer }
+.pf input, .pf select, .pf textarea { font:inherit; color:var(--ink); background:#0a1830; border:1px solid var(--line); border-radius:10px; padding:11px 13px; width:100%; outline:none }
+.pf input:focus, .pf select:focus, .pf textarea:focus { border-color:var(--acc); box-shadow:0 0 0 3px rgba(0,212,255,.15) }
+.pf label { display:block; font-size:13px; color:var(--mut); margin:14px 0 6px; font-weight:600 }
+.pf .btn { border:0; border-radius:10px; padding:11px 18px; font-weight:700; background:var(--acc); color:#04223a; transition:filter .15s }
+.pf .btn:hover { filter:brightness(1.1) } .pf .btn:disabled { opacity:.45; cursor:not-allowed }
+.pf .btn.ghost { background:transparent; color:var(--ink); border:1px solid var(--line) }
+.pf .btn.ghost:hover { border-color:var(--acc); }
+.pf .btn.danger { background:transparent; color:#fca5a5; border:1px solid #5b2330; padding:7px 12px; font-size:13px }
+.pf .btn.sm { padding:7px 13px; font-size:13px }
+.pf .err { margin-top:14px; padding:10px 12px; border-radius:10px; background:rgba(239,68,68,.12); color:#fecaca; font-size:14px; border:1px solid rgba(239,68,68,.35) }
+.pf .okmsg { margin-top:14px; padding:10px 12px; border-radius:10px; background:rgba(34,197,94,.12); color:#bbf7d0; font-size:14px; border:1px solid rgba(34,197,94,.35) }
+.pf :focus-visible { outline:2px solid var(--acc); outline-offset:2px }
+
+/* ── login ── */
+.lg { min-height:100%; display:grid; grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr) }
+.lg-side { position:relative; padding:56px 64px; display:flex; flex-direction:column; justify-content:space-between; background:linear-gradient(160deg,#0d2a57 0%,#081936 70%); border-right:1px solid var(--line); overflow:hidden }
+.lg-brand { display:flex; align-items:center; gap:12px; font-weight:800; font-size:20px }
+.lg-brand i { width:38px; height:38px; border-radius:11px; display:grid; place-items:center; font-style:normal; background:rgba(0,212,255,.12); border:1px solid rgba(0,212,255,.4) }
+.lg-side h1 { font-size:54px; line-height:1.04; letter-spacing:-.02em; margin-top:40px; max-width:560px }
+.lg-side p.lead { color:#b4c8e6; font-size:19px; line-height:1.55; margin-top:22px; max-width:520px }
+.lg-roles { display:grid; gap:14px; margin-top:44px; max-width:540px }
+.lg-roles div { display:grid; grid-template-columns:44px 1fr; gap:14px; align-items:start }
+.lg-roles span { font-size:24px; width:44px; height:44px; display:grid; place-items:center; border-radius:12px; background:rgba(255,255,255,.05); border:1px solid var(--line) }
+.lg-roles b { display:block; font-size:16px } .lg-roles small { color:var(--mut); font-size:14px; line-height:1.45 }
+.lg-flask { position:absolute; right:-40px; bottom:-30px; width:300px; opacity:.16; pointer-events:none }
+.lg-foot { color:#6f8bb3; font-size:13px; margin-top:40px }
+.lg-main { display:flex; align-items:center; justify-content:center; padding:40px 28px }
+.lg-card { width:100%; max-width:440px }
+.lg-card h2 { font-size:28px; letter-spacing:-.01em } .lg-card .sub { color:var(--mut); margin-top:6px; font-size:15px }
+.seg { display:grid; grid-template-columns:repeat(3,1fr); gap:4px; padding:4px; border-radius:12px; background:#0a1830; border:1px solid var(--line); margin-top:26px }
+.seg button { border:0; background:transparent; color:var(--mut); padding:10px 6px; border-radius:9px; font-weight:700; font-size:14px }
+.seg button.on { background:var(--card); color:var(--ink); box-shadow:inset 0 0 0 1px var(--line) }
+.lg-switch { margin-top:18px; font-size:14px; color:var(--mut) } .lg-switch button { background:none; border:0; color:var(--acc); font-weight:700; padding:0 }
+.lg-row2 { display:grid; grid-template-columns:1fr 1fr; gap:12px }
+.lg-demo { margin-top:28px; padding:14px 16px; border-radius:12px; border:1px dashed var(--line); font-size:13px; color:var(--mut) }
+.lg-demo b { color:var(--ink) } .lg-demo button { background:none; border:0; color:var(--acc); font-weight:700; padding:0; margin-left:6px }
+@media (max-width:900px){ .lg{grid-template-columns:1fr} .lg-side{padding:32px 24px} .lg-side h1{font-size:36px} .lg-roles,.lg-flask{display:none} }
+
+/* ── panel karkasi ── */
+.pn-top { position:sticky; top:0; z-index:5; display:flex; align-items:center; gap:18px; padding:14px 32px; background:rgba(11,28,56,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line) }
+.pn-top .lg-brand { font-size:17px } .pn-top .lg-brand i { width:32px; height:32px; border-radius:9px }
+.pn-role { font-size:12px; font-weight:800; padding:5px 10px; border-radius:999px; background:rgba(0,212,255,.1); color:var(--acc); border:1px solid rgba(0,212,255,.3) }
+.pn-top .sp { flex:1 }
+.pn-user { text-align:right; line-height:1.2 } .pn-user b { display:block; font-size:14px } .pn-user small { color:var(--mut); font-size:12px }
+.pn-body { max-width:1240px; margin:0 auto; padding:32px }
+.pn-hello h1 { font-size:32px; letter-spacing:-.01em } .pn-hello p { color:var(--mut); margin-top:6px }
+.tabs { display:flex; gap:6px; margin:26px 0 22px; border-bottom:1px solid var(--line) }
+.tabs button { background:none; border:0; color:var(--mut); padding:12px 14px; font-weight:700; border-bottom:2px solid transparent; margin-bottom:-1px }
+.tabs button.on { color:var(--ink); border-color:var(--acc) }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin-top:24px }
+.stat { padding:18px 20px; border-radius:14px; background:var(--card); border:1px solid var(--line) }
+.stat b { font-size:30px; display:block } .stat span { color:var(--mut); font-size:14px }
+.grid2 { display:grid; grid-template-columns:380px 1fr; gap:22px; align-items:start }
+@media (max-width:980px){ .grid2{grid-template-columns:1fr} .pn-body{padding:20px} }
+.box { padding:22px; border-radius:16px; background:var(--card); border:1px solid var(--line) }
+.box h3 { font-size:18px } .box .hint { color:var(--mut); font-size:13px; margin-top:4px; line-height:1.45 }
+.list { display:grid; gap:12px }
+.item { padding:18px 20px; border-radius:14px; background:var(--bg2); border:1px solid var(--line) }
+.item .hd { display:flex; align-items:center; gap:12px }
+.item .ic { font-size:26px; width:48px; height:48px; display:grid; place-items:center; border-radius:12px; background:rgba(255,255,255,.04); flex:none }
+.item .tt { flex:1; min-width:0 } .item .tt b { display:block; font-size:16px } .item .tt small { color:var(--mut); font-size:13px }
+.item .meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; font-size:13px; color:var(--mut) }
+.item .note { margin-top:10px; font-size:14px; color:#c9d8ef; line-height:1.45 }
+.chip { display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:800; padding:4px 10px; border-radius:999px; border:1px solid var(--line); color:var(--mut); white-space:nowrap }
+.chip.ok { color:#86efac; border-color:rgba(34,197,94,.4); background:rgba(34,197,94,.08) }
+.chip.new { color:var(--acc); border-color:rgba(0,212,255,.4); background:rgba(0,212,255,.08) }
+.chip.late { color:#fcd34d; border-color:rgba(245,158,11,.4); background:rgba(245,158,11,.08) }
+.chip.base { color:#c4b5fd; border-color:rgba(167,139,250,.4) }
+.bar { height:8px; border-radius:4px; background:#0a1830; overflow:hidden; margin-top:12px } .bar i { display:block; height:100%; background:var(--ok) }
+table.tb { width:100%; border-collapse:collapse; margin-top:14px; font-size:14px }
+table.tb th { text-align:left; color:var(--mut); font-weight:600; font-size:12px; padding:8px 10px; border-bottom:1px solid var(--line) }
+table.tb td { padding:10px; border-bottom:1px solid rgba(31,61,107,.5) }
+.grade { display:inline-grid; place-items:center; width:28px; height:28px; border-radius:8px; font-weight:800; background:rgba(34,197,94,.15); color:#86efac }
+.grade.g4 { background:rgba(0,212,255,.12); color:var(--acc) } .grade.g3 { background:rgba(245,158,11,.14); color:#fcd34d }
+.empty { padding:34px; text-align:center; color:var(--mut); border:1px dashed var(--line); border-radius:14px }
+.cta { display:flex; align-items:center; gap:18px; padding:22px 24px; border-radius:16px; background:linear-gradient(120deg,rgba(0,212,255,.14),rgba(59,130,246,.10)); border:1px solid rgba(0,212,255,.35); margin-top:24px }
+.cta .tt { flex:1 } .cta b { font-size:18px } .cta p { color:#b4c8e6; font-size:14px; margin-top:4px }
+.rg-row { display:grid; grid-template-columns:64px 1fr 1.3fr; gap:8px; align-items:center; margin-top:8px }
+.rg-row b { font-size:14px } .rg-row input { padding:8px 10px; font-size:13px }
+.icons { display:flex; flex-wrap:wrap; gap:6px } .icons button { width:40px; height:40px; border-radius:10px; border:1px solid var(--line); background:#0a1830; font-size:19px }
+.icons button.on { border-color:var(--acc); background:rgba(0,212,255,.12) }
+.eqbox { margin-top:10px; padding:10px 12px; border-radius:10px; background:#0a1830; border:1px solid var(--line); font-weight:700; font-size:14px }
+.check { display:flex; align-items:center; gap:8px; margin-top:14px; font-size:14px; color:var(--ink) } .check input { width:auto }
+
+/* ── laboratoriya ichidagi foydalanuvchi belgisi va vazifa ── */
+.nal-chip { position:fixed; top:12px; right:16px; z-index:400; display:flex; align-items:center; gap:10px; padding:5px 6px 5px 12px; border-radius:999px; background:rgba(8,22,46,.9); border:1px solid rgba(0,212,255,.3); color:#e8f0ff; font:600 13px 'Space Grotesk',system-ui,sans-serif; box-shadow:0 8px 24px rgba(0,0,0,.35) }
+.nal-chip small { color:#8ea8cc; font-weight:600 }
+.nal-chip button { border:0; border-radius:999px; padding:6px 12px; background:#00d4ff; color:#04223a; font-weight:800; font-size:12px; cursor:pointer }
+.nal-chip.inhdr { position:static; box-shadow:none }
+.cl-taskline { display:inline-block; margin:6px 0 4px; padding:4px 10px; border-radius:999px; background:rgba(245,158,11,.14); border:1px solid rgba(245,158,11,.45); color:#fde68a; font-size:12px; font-weight:700 }
+.cl-done .sent { margin-top:10px; padding:10px 12px; border-radius:10px; background:rgba(34,197,94,.12); border:1px solid rgba(34,197,94,.35); color:#bbf7d0; font-size:14px; font-weight:600 }

@@ -1,0 +1,22 @@
+# Bog'liqliklar va build
+node_modules/
+dist/
+dist_all/
+
+# MAXFIY — API kalitlari (hech qachon commit qilinmaydi)
+.env
+.env.local
+.env.*.local
+
+# Asl (siqilmagan) modellar zaxirasi — 270MB, GitHub limitidan katta
+models_backup_original/
+
+# Muharrir / tizim
+.DS_Store
+*.log
+.claude/
+.impeccable/
+
+# Landing sayt build chiqishi
+frontend/build/
+frontend/node_modules/

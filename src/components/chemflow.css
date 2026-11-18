@@ -1,0 +1,112 @@
+/* ── Kimyo tajribalari oqimi (tanlash, ombor, jadval) ─────────────────────────────────────── */
+.chemshell { position: absolute; inset: 0; overflow: hidden; font-family: 'Manrope', system-ui, sans-serif; --glass: rgba(6, 17, 36, .9); --line: rgba(125, 211, 252, .22); --cyan: #22d3ee; --ink: #e8f0ff; --mut: #93a8c6; }
+.chemshell button { cursor: pointer; font-family: inherit; }
+
+/* fanlar */
+
+/* tanlash ekranlari */
+.cl-screen { position: fixed; inset: 0; z-index: 150; padding: 76px 334px 28px 28px; background: radial-gradient(ellipse at 60% 30%, rgba(13, 36, 71, .82), rgba(3, 10, 24, .94)); backdrop-filter: blur(6px); overflow: auto; color: var(--ink); }
+.cl-screen header h1 { font-family: 'Unbounded', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -.02em; }
+.cl-screen header p { color: var(--mut); margin: 6px 0 22px; max-width: 60ch; }
+.cl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+.cl-exp { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; text-align: left; padding: 18px 18px 16px; min-height: 196px; border-radius: 14px; border: 1px solid var(--line); background: linear-gradient(160deg, rgba(20, 44, 82, .9), rgba(8, 20, 42, .92)); color: var(--ink); transition: transform .15s, border-color .15s; }
+.cl-exp:hover { transform: translateY(-3px); border-color: var(--cyan); }
+.cl-exp .n { position: absolute; top: 14px; right: 16px; font-family: 'Unbounded', sans-serif; font-size: 32px; font-weight: 900; color: rgba(125, 211, 252, .22); }
+.cl-exp .ic { font-size: 28px; }
+.cl-exp b { font-family: 'Unbounded', sans-serif; font-size: 15px; font-weight: 600; }
+.cl-exp small { color: var(--mut); font-size: 12.5px; line-height: 1.4; }
+.cl-exp .chips { display: flex; gap: 5px; flex-wrap: wrap; margin-top: auto; }
+.cl-exp .chips i { font-style: normal; font-weight: 800; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: rgba(34, 211, 238, .12); color: #a5f3fc; }
+.cl-exp .lv { font-size: 11px; color: #7dd3fc; }
+.cl-exp.disc { background: linear-gradient(160deg, rgba(76, 29, 149, .55), rgba(8, 20, 42, .92)); border-color: rgba(196, 181, 253, .4); }
+.cl-exp.free { border-style: dashed; border-color: rgba(250, 204, 21, .5); background: linear-gradient(160deg, rgba(113, 63, 18, .45), rgba(8, 20, 42, .92)); }
+
+.cl-screen.pick { display: grid; grid-template-columns: minmax(300px, 380px) 1fr; gap: 18px; }
+.cl-recipe { color: var(--ink); background: var(--glass); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+.cl-recipe .back { border: 0; background: none; color: #7dd3fc; font-weight: 700; padding: 0; margin-bottom: 10px; }
+.cl-recipe h2 { font-family: 'Unbounded', sans-serif; font-size: 18px; font-weight: 600; }
+.cl-recipe h3 { font-size: 12px; color: #7dd3fc; margin: 14px 0 6px; letter-spacing: .02em; }
+.cl-recipe .goal { color: var(--mut); font-size: 13px; margin-top: 6px; }
+.cl-recipe .eq { font-weight: 800; font-size: 15px; padding: 8px 10px; border-radius: 8px; background: rgba(34, 211, 238, .1); color: #cffafe; }
+.cl-recipe table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.cl-recipe th { text-align: left; color: var(--mut); font-weight: 600; font-size: 11px; padding: 4px; border-bottom: 1px solid var(--line); }
+.cl-recipe td { padding: 7px 4px; border-bottom: 1px solid rgba(125, 211, 252, .1); vertical-align: top; }
+.cl-recipe td small { color: var(--mut); }
+.cl-recipe tr.ok td:first-child { color: #4ade80; font-weight: 900; }
+.cl-recipe .watch { font-size: 12.5px; color: #fde68a; margin-top: 12px; }
+
+.cl-store { display: flex; flex-direction: column; min-height: 0; background: var(--glass); border: 1px solid var(--line); border-radius: 14px; }
+.cl-store .hd { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.cl-store .hd h2 { font-family: 'Unbounded', sans-serif; font-size: 18px; font-weight: 600; }
+.cl-store .hd input { flex: 0 1 260px; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); color: var(--ink); }
+.cl-store .cats { flex: 1; overflow: auto; padding: 8px 16px 16px; }
+.cl-store h4 { font-size: 12px; color: #7dd3fc; margin: 12px 0 6px; }
+.cl-store .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 7px; }
+.cl-store .tile { display: grid; grid-template-columns: 14px 1fr; gap: 0 8px; align-items: center; text-align: left; padding: 8px 10px; border-radius: 9px; border: 1px solid rgba(125, 211, 252, .16); background: rgba(255, 255, 255, .04); color: var(--ink); }
+.cl-store .tile i { width: 12px; height: 12px; border-radius: 50%; grid-row: span 2; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35); }
+.cl-store .tile b { font-size: 14px; }
+.cl-store .tile span { font-size: 11px; color: var(--mut); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cl-store .tile.need { border-color: rgba(250, 204, 21, .55); }
+.cl-store .tile.on { background: rgba(34, 211, 238, .18); border-color: var(--cyan); }
+.cl-store footer { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-top: 1px solid var(--line); }
+.cl-store .bk { flex: 1; display: flex; flex-wrap: wrap; gap: 6px; }
+.cl-store .bk span { cursor: pointer; font-weight: 800; font-size: 12.5px; padding: 5px 9px; border-radius: 7px; background: rgba(34, 211, 238, .16); }
+.cl-store .bk span.extra { background: rgba(251, 146, 60, .2); color: #fed7aa; }
+.cl-store .bk em { color: var(--mut); font-size: 13px; }
+.chemshell .go { padding: 11px 18px; border-radius: 10px; border: 0; background: linear-gradient(180deg, #22d3ee, #0ea5e9); color: #04223a; font-weight: 800; font-size: 14px; }
+.chemshell .go:disabled { opacity: .4; cursor: not-allowed; }
+
+/* laboratoriya ichidagi jadval */
+.cl-recipe.lab { position: fixed; top: 52px; left: 14px; width: 300px; z-index: 170; padding: 12px 14px; max-height: calc(100vh - 120px); min-height: 0; overflow: auto; }
+.cl-recipe.lab .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.cl-recipe.lab h2 { font-size: 14px; }
+.cl-recipe.lab .row button { width: 26px; height: 26px; border-radius: 7px; border: 1px solid var(--line); background: transparent; color: var(--ink); }
+.cl-recipe .steps { list-style: none; margin: 10px 0 8px; display: grid; gap: 5px; }
+.cl-recipe .steps li { display: grid; grid-template-columns: 20px 1fr auto; gap: 6px; align-items: center; font-size: 12.5px; color: var(--mut); padding: 6px 7px; border-radius: 8px; }
+.cl-recipe .steps li span { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(147, 168, 198, .6); display: grid; place-items: center; font-size: 11px; font-weight: 900; }
+.cl-recipe .steps li b { font-size: 12px; color: #a5f3fc; }
+.cl-recipe .steps li.cur { background: rgba(34, 211, 238, .12); color: var(--ink); }
+.cl-recipe .steps li.cur span { border-color: var(--cyan); }
+.cl-recipe .steps li.ok { color: #86efac; }
+.cl-recipe .steps li.ok span { background: #22c55e; border-color: #22c55e; color: #052e16; }
+.cl-recipe table.mini td { padding: 4px; font-size: 12px; }
+.cl-recipe .flask { font-size: 12.5px; margin-top: 8px; } .cl-recipe .flask span { color: var(--mut); }
+.cl-recipe .warn { margin-top: 8px; font-size: 12px; color: #fecaca; background: rgba(239, 68, 68, .15); border: 1px solid rgba(239, 68, 68, .4); border-radius: 8px; padding: 6px 8px; }
+.cl-recipe .btns { display: flex; gap: 6px; margin-top: 10px; }
+.cl-recipe .btns button { flex: 1; padding: 7px; border-radius: 8px; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); color: var(--ink); font-weight: 700; font-size: 12px; }
+
+/* yakun oynasi */
+.cl-done { position: fixed; inset: 0; z-index: 260; display: grid; place-items: center; background: rgba(3, 10, 24, .45); }
+.cl-done .box { width: min(520px, 92vw); padding: 24px; border-radius: 16px; background: #0b1a33; border: 1px solid rgba(74, 222, 128, .45); color: var(--ink); text-align: center; animation: clPop .3s ease both; }
+.cl-done .big { font-size: 44px; } .cl-done h2 { font-family: 'Unbounded', sans-serif; font-size: 22px; margin: 4px 0 12px; }
+.cl-done .eq { font-weight: 800; padding: 9px; border-radius: 8px; background: rgba(34, 211, 238, .1); margin-bottom: 10px; }
+.cl-done p { font-size: 13.5px; color: #cbd5e1; margin: 6px 0; } .cl-done .ex { color: var(--mut); }
+.cl-done .btns { display: flex; gap: 8px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
+.cl-done .btns button { padding: 10px 14px; border-radius: 10px; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); color: var(--ink); font-weight: 700; }
+@keyframes clPop { from { transform: scale(.92); opacity: 0; } to { transform: none; opacity: 1; } }
+
+.cl-toast { position: fixed; top: 62px; left: 50%; transform: translateX(-50%); z-index: 300; padding: 10px 16px; border-radius: 10px; background: #0b1a33; border: 1px solid var(--cyan); color: var(--ink); font-weight: 700; font-size: 13px; }
+.cl-flash { position: fixed; inset: 0; z-index: 240; pointer-events: none; background: radial-gradient(circle at 50% 55%, rgba(255, 240, 200, .95), rgba(255, 140, 40, .5) 40%, transparent 75%); animation: clFlash .9s ease-out both; }
+@keyframes clFlash { from { opacity: 1; } to { opacity: 0; } }
+.cl-anger { position: fixed; inset: 0; pointer-events: none; z-index: 140; opacity: 0; transition: opacity .8s; box-shadow: inset 0 0 160px 30px rgba(255, 40, 20, .55); }
+.chemshell.tone-angry .cl-anger { opacity: .5; }
+.chemshell.tone-rage .cl-anger { opacity: 1; animation: clPulse 1.1s ease-in-out infinite alternate; }
+@keyframes clPulse { from { opacity: .5; } to { opacity: 1; } }
+
+/* National AI Lab laboratoriyasiga moslash: tepada ko'rinish va fanlar paneli, pastda boshqaruv paneli */
+.chemshell { pointer-events: none; z-index: auto; }
+.chemshell > * { pointer-events: auto; }
+.chemshell .cl-anger, .chemshell .cl-flash { pointer-events: none; }
+.cl-screen { z-index: 205; padding: 140px 360px 40px 28px; }
+.cl-recipe.lab { top: 132px; max-height: calc(100vh - 220px); }
+.cl-toast { top: 132px; }
+.cl-subjects-wrap .cl-subjects { z-index: 220; }
+/* tanlash ekranlari laboratoriya panellari ustida turadi; o'qituvchi va fanlar paneli — undan ham ustida */
+.cl-screen { z-index: 300; }
+.cl-done { z-index: 310; }
+.domla3d { z-index: 320; }
+.cl-subjects-wrap .cl-subjects { z-index: 330; }
+.cl-screen { padding-top: 70px; }
+.cl-screen > header, .cl-screen.pick > aside, .cl-screen.pick > .cl-store { margin-top: 70px; }
+.cl-screen.pick { padding-top: 70px; }
+.cl-subjects-wrap .cl-subjects { top: 84px; }

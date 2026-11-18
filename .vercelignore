@@ -1,0 +1,5 @@
+# Birlashtirilgan build frontend/ ni ham talab qiladi — uni chiqarib
+# tashlab bo'lmaydi. Faqat haqiqatan keraksizlari:
+models_backup_original/
+.impeccable/
+dist_all/
